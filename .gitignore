@@ -1,0 +1,7 @@
+backend/.venv/
+backend/mplads.db
+backend/ml/*.joblib
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+.pytest_cache/
