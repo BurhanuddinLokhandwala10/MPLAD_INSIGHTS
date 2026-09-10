@@ -17,7 +17,7 @@ async def lifespan(app):
  if not DB_PATH.exists():build_pipeline(True)
  yield
 app=FastAPI(title='MPLADS INSIGHT API',version='1.0.0',lifespan=lifespan)
-app.add_middleware(CORSMiddleware,allow_origins=['http://localhost:5173','http://127.0.0.1:5173'],allow_methods=['*'],allow_headers=['*'])
+app.add_middleware(CORSMiddleware,allow_origins=['http://localhost:5173','http://127.0.0.1:5173'],allow_origin_regex=r'https://([a-z0-9-]+\.)*vercel\.app',allow_methods=['*'],allow_headers=['*'])
 @app.get('/api/health')
 def health():return {'status':'healthy','service':'MPLADS INSIGHT','demo_mode':True}
 @app.get('/api/projects')
